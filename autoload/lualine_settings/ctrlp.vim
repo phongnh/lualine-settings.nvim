@@ -16,12 +16,12 @@ function! lualine_settings#ctrlp#MainStatus(focus, byfname, regex, prev, item, n
     let g:lualine_ctrlp.next    = a:next
     let g:lualine_ctrlp.marked  = a:marked
     let g:lualine_ctrlp.dir     = s:GetCurrentDir()
-    return v:lua.require("lualine").statusline()
+    return lualine_settings#Statusline(v:true)
 endfunction
 
 function! lualine_settings#ctrlp#ProgressStatus(len) abort
     let g:lualine_ctrlp.main = v:false
     let g:lualine_ctrlp.len  = a:len
     let g:lualine_ctrlp.dir  = s:GetCurrentDir()
-    return v:lua.require("lualine").statusline()
+    return lualine_settings#Statusline(v:true)
 endfunction
