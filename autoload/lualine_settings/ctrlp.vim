@@ -1,3 +1,4 @@
+" https://github.com/ctrlpvim/ctrlp.vim
 let g:lualine_ctrlp = { 'name': 'CtrlP' }
 
 function! s:GetCurrentDir() abort

@@ -1,3 +1,4 @@
+-- https://github.com/ctrlpvim/ctrlp.vim
 local M = {}
 
 M.sections = {
