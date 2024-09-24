@@ -10,7 +10,7 @@ M.sections = {
     {
       "b:netrw_curdir",
       fmt = function(name, _context)
-        return vim.fn.fnamemodify(name, ":p:~:h")
+        return vim.fn.fnamemodify(name, ":p:~:.:h")
       end,
     },
   },
