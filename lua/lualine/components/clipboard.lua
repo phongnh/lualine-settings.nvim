@@ -13,8 +13,7 @@ function M:init(options)
 end
 
 function M:update_status()
-  -- return vim.g.lualine_symbols.clipboard
-  return "🅒 "
+  return LualineSettings.symbols.clipboard
 end
 
 return M

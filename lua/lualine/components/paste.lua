@@ -13,8 +13,7 @@ function M:init(options)
 end
 
 function M:update_status()
-  -- return vim.g.lualine_symbols.paste
-  return "🅟 "
+  return LualineSettings.symbols.paste
 end
 
 return M
