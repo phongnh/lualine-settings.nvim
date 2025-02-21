@@ -1,5 +1,57 @@
 local M = {}
 
+-- stylua: ignore start
+M.section_separator_styles = {
+  default  = { left = "", right = "" },
+  angle    = { left = "", right = "" },
+  curvy    = { left = "", right = "" },
+  slant    = { left = "", right = "" },
+  ["><"]   = { left = "", right = "" },
+  [">("]   = { left = "", right = "" },
+  [">\\"]  = { left = "", right = "" },
+  [">/"]   = { left = "", right = "" },
+  [")("]   = { left = "", right = "" },
+  [")<"]   = { left = "", right = "" },
+  [")\\"]  = { left = "", right = "" },
+  [")/"]   = { left = "", right = "" },
+  ["\\\\"] = { left = "", right = "" },
+  ["\\/"]  = { left = "", right = "" },
+  ["\\<"]  = { left = "", right = "" },
+  ["\\("]  = { left = "", right = "" },
+  ["//"]   = { left = "", right = "" },
+  ["/\\"]  = { left = "", right = "" },
+  ["/<"]   = { left = "", right = "" },
+  ["/("]   = { left = "", right = "" },
+  ["||"]   = { left = "",  right = ""  },
+}
+-- stylua: ignore end
+
+-- stylua: ignore start
+M.component_separator_styles = {
+  default  = { left = "", right = "" },
+  angle    = { left = "", right = "" },
+  curvy    = { left = "", right = "" },
+  slant    = { left = "", right = "" },
+  ["><"]   = { left = "", right = "" },
+  [">("]   = { left = "", right = "" },
+  [">\\"]  = { left = "", right = "" },
+  [">/"]   = { left = "", right = "" },
+  [")("]   = { left = "", right = "" },
+  [")<"]   = { left = "", right = "" },
+  [")\\"]  = { left = "", right = "" },
+  [")/"]   = { left = "", right = "" },
+  ["\\\\"] = { left = "", right = "" },
+  ["\\/"]  = { left = "", right = "" },
+  ["\\<"]  = { left = "", right = "" },
+  ["\\("]  = { left = "", right = "" },
+  ["//"]   = { left = "", right = "" },
+  ["/\\"]  = { left = "", right = "" },
+  ["/<"]   = { left = "", right = "" },
+  ["/("]   = { left = "", right = "" },
+  ["||"]   = { left = "|", right = "|" },
+}
+-- stylua: ignore end
+
 local default_symbols = {
   dos = "[dos]",
   mac = "[mac]",
@@ -19,6 +71,7 @@ local H = {}
 
 H.default_config = {
   show_devicons = false,
+  powerline_style = "||",
 }
 
 H.setup_config = function(config)
@@ -27,6 +80,7 @@ H.setup_config = function(config)
 
   vim.validate({
     show_devicons = { config.show_devicons, "boolean" },
+    powerline_style = { config.powerline_style, "string" },
     symbols = { config.symbols, "table", true },
   })
 
@@ -50,9 +104,21 @@ H.apply_config = function(config)
       linenr = "",
       branch = "",
     })
+  else
+    config.powerline_style = "||"
   end
 
   LualineSettings.symbols = vim.tbl_deep_extend("force", LualineSettings.symbols, config.symbols or {})
+  LualineSettings.section_separator = LualineSettings.get_section_separator(config.powerline_style)
+  LualineSettings.component_separator = LualineSettings.get_component_separator(config.powerline_style)
+end
+
+M.get_section_separator = function(style)
+  return LualineSettings.section_separator_styles[style] or LualineSettings.section_separator_styles["||"]
+end
+
+M.get_component_separator = function(style)
+  return LualineSettings.component_separator_styles[style] or LualineSettings.component_separator_styles["||"]
 end
 
 M.setup = function(config)
