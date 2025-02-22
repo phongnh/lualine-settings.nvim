@@ -1,7 +1,7 @@
 local M = {}
 
 -- stylua: ignore start
-M.section_separator_styles = {
+local section_separator_styles = {
   default  = { left = "", right = "" },
   angle    = { left = "", right = "" },
   curvy    = { left = "", right = "" },
@@ -27,7 +27,7 @@ M.section_separator_styles = {
 -- stylua: ignore end
 
 -- stylua: ignore start
-M.component_separator_styles = {
+local component_separator_styles = {
   default  = { left = "", right = "" },
   angle    = { left = "", right = "" },
   curvy    = { left = "", right = "" },
@@ -67,6 +67,29 @@ local default_symbols = {
   branch = "⎇ ",
 }
 
+local devicons_symbols = {
+  dos = "",
+  mac = "",
+  unix = "",
+  tabs = " ",
+  space = " ",
+  bomb = " ",
+  noeol = " ",
+  clipboard = "🅒 ",
+  paste = "🅟 ",
+  readonly = "",
+  linenr = "",
+  branch = "",
+}
+
+local get_section_separators = function(style)
+  return section_separator_styles[style] or section_separator_styles["||"]
+end
+
+local get_component_separators = function(style)
+  return component_separator_styles[style] or component_separator_styles["||"]
+end
+
 local H = {}
 
 H.default_config = {
@@ -90,35 +113,19 @@ end
 H.apply_config = function(config)
   LualineSettings.config = config
 
-  LualineSettings.symbols = vim.deepcopy(default_symbols)
-
   if config.show_devicons then
-    LualineSettings.symbols = vim.tbl_extend("force", LualineSettings.symbols, {
-      dos = "",
-      mac = "",
-      unix = "",
-      tabs = " ",
-      bomb = " ",
-      noeol = " ",
-      readonly = "",
-      linenr = "",
-      branch = "",
-    })
+    LualineSettings.symbols = vim.deepcopy(devicons_symbols)
   else
+    LualineSettings.symbols = vim.deepcopy(default_symbols)
+  end
+  LualineSettings.symbols = vim.tbl_deep_extend("force", LualineSettings.symbols, config.symbols or {})
+
+  config.powerline_style = config.powerline_style or "||"
+  if not config.show_devicons then
     config.powerline_style = "||"
   end
-
-  LualineSettings.symbols = vim.tbl_deep_extend("force", LualineSettings.symbols, config.symbols or {})
-  LualineSettings.section_separator = LualineSettings.get_section_separator(config.powerline_style)
-  LualineSettings.component_separator = LualineSettings.get_component_separator(config.powerline_style)
-end
-
-M.get_section_separator = function(style)
-  return LualineSettings.section_separator_styles[style] or LualineSettings.section_separator_styles["||"]
-end
-
-M.get_component_separator = function(style)
-  return LualineSettings.component_separator_styles[style] or LualineSettings.component_separator_styles["||"]
+  LualineSettings.section_separators = get_section_separators(config.powerline_style)
+  LualineSettings.component_separators = get_component_separators(config.powerline_style)
 end
 
 M.setup = function(config)
