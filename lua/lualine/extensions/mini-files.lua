@@ -10,7 +10,11 @@ M.sections = {
     function()
       local ok, minifiles = pcall(require, "mini.files")
       if ok then
-        return vim.fn.fnamemodify(minifiles.get_fs_entry().path, ":p:~:.")
+        local path = minifiles.get_fs_entry().path
+        if path == getcwd() then
+          return vim.fn.fnamemodify(path, ":p:~")
+        end
+        return vim.fn.fnamemodify(path, ":p:~:.")
       else
         return ""
       end
