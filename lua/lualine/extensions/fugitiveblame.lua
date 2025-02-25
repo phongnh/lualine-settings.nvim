@@ -1,3 +1,4 @@
+-- https://github.com/tpope/vim-fugitive
 local M = {}
 
 M.sections = {

@@ -1,3 +1,4 @@
+-- https://github.com/stevearc/oil.nvim
 local M = {}
 
 M.sections = {

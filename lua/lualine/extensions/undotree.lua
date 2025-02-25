@@ -1,3 +1,4 @@
+-- https://github.com/mbbill/undotree
 local M = {}
 
 M.sections = {

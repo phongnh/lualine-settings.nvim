@@ -1,3 +1,4 @@
+-- https://github.com/nvim-lua/telescope.nvim
 local M = {}
 
 M.sections = {

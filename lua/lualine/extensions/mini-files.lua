@@ -1,3 +1,4 @@
+-- https://github.com/echasnovski/mini.files
 local M = {}
 
 M.sections = {
