@@ -65,6 +65,7 @@ local default_symbols = {
   readonly = "",
   linenr = "☰",
   branch = "⎇ ",
+  ellipsis = "…",
 }
 
 local devicons_symbols = {
@@ -80,6 +81,7 @@ local devicons_symbols = {
   readonly = "",
   linenr = "",
   branch = "",
+  ellipsis = "…",
 }
 
 local get_section_separators = function(style)
