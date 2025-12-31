@@ -4,7 +4,7 @@ local M = {}
 M.sections = {
   lualine_a = {
     function()
-      return "Undotree"
+      return "NvimUndotree"
     end,
   },
 }
