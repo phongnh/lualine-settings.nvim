@@ -7,7 +7,7 @@ function! lualine_settings#undotree#Status(...) abort
 endfunction
 
 function! lualine_settings#undotree#DiffStatus(...) abort
-    if exists('t:diffpanel')
+    if exists('t:diffpanel') && t:diffpanel.bufname ==# expand('%:t')
         retur t:diffpanel.GetStatusLine()
     endif
     return ''
