@@ -1,15 +1,11 @@
 local lualine_require = require("lualine_require")
 local M = lualine_require.require("lualine.component"):extend()
 
-local default_options = {
-  cond = function()
-    return vim.api.nvim_win_get_width(0) >= 60
-  end,
-}
-
 function M:init(options)
   M.super.init(self, options)
-  self.options = vim.tbl_deep_extend("keep", self.options or {}, default_options)
+  self.options.cond = function()
+    return vim.api.nvim_win_get_width(0) >= 60
+  end
 end
 
 function M:update_status()

@@ -3,13 +3,10 @@ local M = lualine_require.require("lualine.component"):extend()
 
 function M:init(options)
   M.super.init(self, options)
-  self.options.cond = function()
-    return vim.o.paste
-  end
 end
 
 function M:update_status()
-  return LualineSettings.symbols.paste
+  return LualineSettings.symbols.branch .. " " .. vim.fn.FugitiveHead()
 end
 
 return M
