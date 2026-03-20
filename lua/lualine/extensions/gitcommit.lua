@@ -5,9 +5,7 @@ M.sections = {
     function()
       return "Commit Message"
     end,
-    function()
-      return string.upper((vim.o.spelllang or ""):gsub(",", "/"))
-    end,
+    "spell",
   },
   lualine_b = { "branch" },
   lualine_z = { "location" },
