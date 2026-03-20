@@ -9,10 +9,7 @@ M.sections = {
   },
   lualine_b = {
     function()
-      if vim.fn.exists("t:undotree") == 1 then
-        return vim.fn["t:undotree.GetStatusLine"]()
-      end
-      return ""
+      return vim.fn["lualine_settings#undotree#Status"]()
     end,
   },
 }
