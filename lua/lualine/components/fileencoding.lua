@@ -10,6 +10,9 @@ end
 
 function M:update_status()
   local encoding = (not vim.bo.fileencoding or vim.bo.fileencoding == "") and vim.o.encoding or vim.bo.fileencoding
+  if encoding == "utf8" and vim.bo.fileformat == "unix" and not vim.bo.bomb and vim.bo.eol then
+    return ""
+  end
   local status = encoding ~= "utf-8" and (encoding .. " ") or ""
   status = status .. (vim.bo.bomb and (LualineSettings.symbols.bomb .. " ") or "")
   status = status .. (not vim.bo.eol and (LualineSettings.symbols.noeol .. " ") or "")
