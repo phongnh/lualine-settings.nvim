@@ -32,7 +32,7 @@ end
 local M = {}
 
 function M.init()
-  -- Make sure ft wf doesn't create a custom statusline
+  -- Disable Vim Quickfix's statusline
   vim.g.qf_disable_statusline = true
 end
 
