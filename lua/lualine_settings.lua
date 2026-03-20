@@ -97,6 +97,8 @@ local H = {}
 H.default_config = {
   show_devicons = false,
   powerline_style = "||",
+  show_git_branch = true,
+  show_linenr = false,
 }
 
 H.setup_config = function(config)
@@ -107,6 +109,8 @@ H.setup_config = function(config)
     show_devicons = { config.show_devicons, "boolean" },
     powerline_style = { config.powerline_style, "string" },
     symbols = { config.symbols, "table", true },
+    show_git_branch = { config.show_git_branch, "boolean" },
+    show_linenr = { config.show_linenr, "boolean" },
   })
 
   return config

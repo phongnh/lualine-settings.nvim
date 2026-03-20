@@ -1,6 +1,6 @@
 -- Tagbar Integration
 vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("LualineTagbar", { clear = true }),
+  group = vim.api.nvim_create_augroup("LualineSettingsTagbar", { clear = true }),
   pattern = "*",
   callback = function()
     if vim.fn.exists(":Tagbar") == 2 then

@@ -1,6 +1,6 @@
 -- CtrlP Integration
 vim.api.nvim_create_autocmd("VimEnter", {
-  group = vim.api.nvim_create_augroup("LualineCtrlP", { clear = true }),
+  group = vim.api.nvim_create_augroup("LualineSettingsCtrlP", { clear = true }),
   pattern = "*",
   callback = function()
     if vim.fn.exists(":CtrlP") == 2 then
