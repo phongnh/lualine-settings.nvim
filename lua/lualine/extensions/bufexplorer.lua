@@ -9,6 +9,6 @@ M.sections = {
   },
 }
 
-M.filetypes = { "BufExplorer" }
+M.filetypes = { "bufexplorer" }
 
 return M
