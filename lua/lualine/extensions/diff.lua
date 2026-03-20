@@ -7,12 +7,7 @@ M.sections = {
     end,
   },
   lualine_b = {
-    function()
-      if vim.t.diffpanel ~= nil then
-        return vim.fn["lualine_settings#undotree#DiffStatus"]()
-      end
-      return ""
-    end,
+    "lualine_settings#undotree#DiffStatus",
   },
 }
 

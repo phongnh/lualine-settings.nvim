@@ -8,9 +8,7 @@ M.sections = {
     end,
   },
   lualine_b = {
-    function()
-      return vim.fn["lualine_settings#undotree#Status"]()
-    end,
+    "lualine_settings#undotree#Status",
   },
 }
 

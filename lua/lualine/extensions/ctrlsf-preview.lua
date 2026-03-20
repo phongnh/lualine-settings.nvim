@@ -9,9 +9,7 @@ M.sections = {
   },
   lualine_b = {
     {
-      function()
-        return vim.fn["ctrlsf#utils#PreviewSectionC"]()
-      end,
+      "ctrlsf#utils#PreviewSectionC",
       fmt = function(name, _context)
         return vim.fn.fnamemodify(name, ":~:.")
       end,
