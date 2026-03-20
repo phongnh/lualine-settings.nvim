@@ -9,13 +9,14 @@ function M:init(options)
 end
 
 function M:update_status()
-  local encoding = (vim.bo.fileencoding or ""):len() > 0 and vim.bo.fileencoding or vim.o.encoding
-  encoding = (encoding == "utf-8") and "" or (encoding .. " ")
-  local bomb = vim.bo.bomb and LualineSettings.symbols.bomb .. " " or ""
-  local noeol = vim.bo.eol and "" or LualineSettings.symbols.noeol .. " "
-  local format = LualineSettings.symbols[vim.bo.fileformat] or "[empty]"
-  format = format == "[unix]" and "" or format .. " "
-  return encoding .. bomb .. noeol .. format
+  local encoding = (not vim.bo.fileencoding or vim.bo.fileencoding == "") and vim.o.encoding or vim.bo.fileencoding
+  local status = encoding ~= "utf-8" and (encoding .. " ") or ""
+  status = status .. (vim.bo.bomb and (LualineSettings.symbols.bomb .. " ") or "")
+  status = status .. (not vim.bo.eol and (LualineSettings.symbols.noeol .. " ") or "")
+  if vim.bo.fileformat and vim.bo.fileformat ~= "" and vim.bo.fileformat ~= "unix" then
+    status = status .. LualineSettings.symbols[vim.bo.fileformat] .. " "
+  end
+  return status
 end
 
 return M
