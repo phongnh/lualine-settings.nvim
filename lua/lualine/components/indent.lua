@@ -13,11 +13,12 @@ function M:init(options)
 end
 
 function M:update_status()
-  local shiftwidth = vim.fn.exists("*shiftwidth") == 1 and vim.fn.shiftwidth() or vim.bo.shiftwidth
-  if self.options.is_compact ~= nil and self.options.is_compact() then
-    return string.format(vim.bo.expandtab and "SPC: %d" or "TAB: %d", shiftwidth)
+  local is_compact = self.options.is_compact ~= nil and self.options.is_compact()
+  if vim.bo.expandtab then
+    local shiftwidth = vim.fn.exists("*shiftwidth") == 1 and vim.fn.shiftwidth() or vim.bo.shiftwidth
+    return string.format(is_compact and "SPC: %d" or "Spaces: %d", shiftwidth)
   else
-    return string.format(vim.bo.expandtab and "Spaces: %d" or "Tab Size: %d", shiftwidth)
+    return string.format(is_compact and "TAB: %d" or "Tab Size: %d", vim.bo.tabstop)
   end
 end
 
