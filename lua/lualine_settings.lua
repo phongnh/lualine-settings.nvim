@@ -53,9 +53,9 @@ local component_separator_styles = {
 -- stylua: ignore end
 
 local default_symbols = {
-  dos = "[dos]",
-  mac = "[mac]",
-  unix = "[unix]",
+  dos = "dos",
+  mac = "mac",
+  unix = "unix",
   tabs = "TABS",
   space = " ",
   bomb = "🅑 ",
