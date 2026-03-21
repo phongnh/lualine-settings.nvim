@@ -1,5 +1,5 @@
 local function spell()
-  if vim.bo.spell then
+  if vim.o.spell then
     return string.upper((vim.o.spelllang or ""):gsub(",", "/"))
   end
   return ""
