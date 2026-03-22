@@ -34,7 +34,7 @@ M.sections = {
       fugitive_status("untracked"),
     },
   },
-  lualine_z = { "location" },
+  lualine_z = { "position" },
 }
 
 M.filetypes = { "fugitive" }
