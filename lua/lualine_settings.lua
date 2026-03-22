@@ -202,10 +202,13 @@ H.setup_lualine = function()
       lualine_y = {},
       lualine_z = {},
     },
-    extensions = {
+    extensions = vim.list_extend({
+      "cmdline",
+      "qf",
+      "help",
+      "terminal",
       "filetype_mode",
       "nrrwrgn",
-      "cmdline",
       "netrw",
       "mini-files",
       "fugitive",
@@ -213,18 +216,17 @@ H.setup_lualine = function()
       "git",
       "gitcommit",
       "gitrebase",
-      "fzf",
       "undotree",
       "diff",
       "tagbar",
       "outline",
-      "mason",
+    }, {
+      -- lualine.nvim builtin extensions
+      "fzf",
       "lazy",
       "man",
-      "qf",
-      "help",
-      "terminal",
-    },
+      "mason",
+    }),
   })
 end
 
