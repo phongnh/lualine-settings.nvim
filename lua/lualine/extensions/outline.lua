@@ -7,20 +7,20 @@ M.sections = {
       return "Outline"
     end,
   },
-  lualine_b = {
+  lualine_c = {
     {
       function()
         local sidebar = require("outline")._get_sidebar()
-        if not sidebar then
-          return ""
+        if sidebar then
+          local bufname = vim.api.nvim_buf_get_name(sidebar.code.buf or 0)
+          return vim.fn.fnamemodify(bufname, ":p:~:.")
         end
-        local buf = sidebar.code.buf
-        return vim.api.nvim_buf_get_name(buf)
-      end,
-      fmt = function(name, _context)
-        return vim.fn.fnamemodify(name, ":p:~:.")
+        return ""
       end,
     },
+  },
+  lualine_z = {
+    "position",
   },
 }
 
