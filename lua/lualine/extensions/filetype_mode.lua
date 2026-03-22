@@ -4,6 +4,8 @@ local M = {}
 local filetypes = {
   -- https://github.com/jlanzarotta/bufexplorer
   bufexplorer = "BufExplorer",
+  -- https://github.com/tpope/vim-fugitive
+  fugitiveblame = "Git Blame",
   snacks_picker_input = "SnacksPickerInput",
   snacks_picker_list = "SnacksPickerList",
   startify = "Startify",
@@ -16,7 +18,7 @@ end
 
 M.sections = {
   lualine_a = {
-    "filetype_mode",
+    filetype_mode,
   },
   lualine_z = {
     "position",

@@ -209,7 +209,6 @@ H.setup_lualine = function()
       "netrw",
       "mini-files",
       "fugitive",
-      "fugitiveblame",
       "gv",
       "git",
       "gitcommit",
