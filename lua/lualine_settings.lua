@@ -68,6 +68,7 @@ local default_symbols = {
   ellipsis = "…",
   explorer = "",
   folder = "",
+  search = "",
 }
 
 local devicons_symbols = {
@@ -86,6 +87,7 @@ local devicons_symbols = {
   ellipsis = "…",
   explorer = "󰙅",
   folder = "󰉋",
+  search = "󰈞",
 }
 
 local get_section_separators = function(style)
@@ -216,6 +218,7 @@ H.setup_lualine = function()
       "netrw",
       "mini-files",
       "snacks_explorer",
+      "snacks_picker",
       "gv",
       "git",
       "gitcommit",

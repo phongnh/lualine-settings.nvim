@@ -6,7 +6,6 @@ local filetypes = {
   bufexplorer = "BufExplorer",
   -- https://github.com/tpope/vim-fugitive
   fugitiveblame = "Git Blame",
-  snacks_picker_input = "SnacksPickerInput",
   startify = "Startify",
   -- vim.cmd.packadd("nvim.undotree")
   ["nvim-undotree"] = "NvimUndotree",
