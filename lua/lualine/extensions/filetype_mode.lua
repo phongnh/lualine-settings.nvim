@@ -19,12 +19,7 @@ M.sections = {
     "filetype_mode",
   },
   lualine_z = {
-    {
-      "location",
-      cond = function()
-        return vim.api.nvim_win_get_width(0) >= 100
-      end,
-    },
+    "position",
   },
 }
 

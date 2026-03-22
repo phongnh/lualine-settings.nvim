@@ -7,7 +7,7 @@ M.sections = {
     end,
   },
   lualine_b = { "basename" },
-  lualine_z = { "location" },
+  lualine_z = { "position" },
 }
 
 M.filetypes = { "git" }

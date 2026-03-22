@@ -8,7 +8,7 @@ M.sections = {
     "spell",
   },
   lualine_b = { "branch" },
-  lualine_z = { "location" },
+  lualine_z = { "position" },
 }
 
 M.filetypes = { "gitrebase" }
