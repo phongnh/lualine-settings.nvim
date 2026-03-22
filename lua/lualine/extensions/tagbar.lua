@@ -5,11 +5,8 @@ M.sections = {
   lualine_a = { "g:lualine_tagbar.sort" },
   lualine_b = {
     {
-      "g:lualine_tagbar.fname",
-    },
-    {
       function()
-          return table.concat(vim.g.lualine_tagbar.flags, "")
+        return table.concat(vim.g.lualine_tagbar.flags, "")
       end,
       cond = function()
         return not vim.tbl_isempty(vim.g.lualine_tagbar.flags)
@@ -19,6 +16,7 @@ M.sections = {
       end,
     },
   },
+  lualine_c = { "g:lualine_tagbar.fname" },
 }
 
 M.filetypes = { "tagbar" }
