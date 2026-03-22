@@ -25,7 +25,12 @@ require("lualine").setup({
     } or {}, {
       { "filename", path = 1, shorting_target = 40 },
     }),
-    lualine_x = { "fileencoding" },
+    lualine_x = {
+      "fileencoding",
+      "bomb",
+      "noeol",
+      "fileformat2",
+    },
     lualine_y = vim.list_extend(LualineSettings.show_linenr and {
       {
         "progress",
