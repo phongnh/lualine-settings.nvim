@@ -7,14 +7,13 @@ M.sections = {
       return "Oil"
     end,
   },
-  lualine_b = {
+  lualine_c = {
     function()
       local ok, oil = pcall(require, "oil")
       if ok then
         return vim.fn.fnamemodify(oil.get_current_dir(), ":p:~:.:h")
-      else
-        return ""
       end
+      return ""
     end,
   },
 }
