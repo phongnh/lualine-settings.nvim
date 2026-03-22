@@ -215,7 +215,6 @@ H.setup_lualine = function()
       "gitrebase",
       "fzf",
       "undotree",
-      "nvim-undotree",
       "diff",
       "tagbar",
       "outline",

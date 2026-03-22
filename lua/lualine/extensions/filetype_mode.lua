@@ -9,6 +9,8 @@ local filetypes = {
   snacks_picker_input = "SnacksPickerInput",
   snacks_picker_list = "SnacksPickerList",
   startify = "Startify",
+  -- vim.cmd.packadd("nvim.undotree")
+  ["nvim-undotree"] = "NvimUndotree",
 }
 
 local function filetype_mode()
