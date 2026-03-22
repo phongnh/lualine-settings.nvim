@@ -7,18 +7,18 @@ M.sections = {
       return "MiniFiles"
     end,
   },
-  lualine_b = {
+  lualine_c = {
     function()
       local ok, minifiles = pcall(require, "mini.files")
       if ok then
-        local path = vim.fn.fnamemodify(minifiles.get_fs_entry().path, ":p:~:.")
+        local current = minifiles.get_fs_entry().path
+        local path = vim.fn.fnamemodify(current, ":p:~:.")
         if path == "" then
-          path = vim.fn.fnamemodify(minifiles.get_fs_entry().path, ":p:~")
+          path = vim.fn.fnamemodify(current, ":p:~")
         end
         return path
-      else
-        return ""
       end
+      return ""
     end,
   },
 }
