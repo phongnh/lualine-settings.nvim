@@ -203,8 +203,8 @@ H.setup_lualine = function()
       lualine_z = {},
     },
     extensions = {
+      "filetype_mode",
       "nrrwrgn",
-      "bufexplorer",
       "cmdline",
       "netrw",
       "mini-files",
