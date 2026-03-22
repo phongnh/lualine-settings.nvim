@@ -7,7 +7,7 @@ M.sections = {
       return "Preview"
     end,
   },
-  lualine_b = {
+  lualine_c = {
     {
       "ctrlsf#utils#PreviewSectionC",
       fmt = function(name, _context)

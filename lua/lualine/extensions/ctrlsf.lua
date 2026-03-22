@@ -14,6 +14,8 @@ M.sections = {
         return name:gsub("Pattern: ", "")
       end,
     },
+  },
+  lualine_c = {
     {
       "ctrlsf#utils#SectionC",
       fmt = function(name, _context)
