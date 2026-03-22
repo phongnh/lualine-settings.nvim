@@ -6,7 +6,7 @@ M.sections = {
       return "Git"
     end,
   },
-  lualine_b = { "basename" },
+  lualine_c = { "basename" },
   lualine_z = { "position" },
 }
 
