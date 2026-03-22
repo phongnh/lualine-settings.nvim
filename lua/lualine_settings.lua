@@ -224,6 +224,7 @@ H.setup_lualine = function()
       "gitcommit",
       "gitrebase",
       "fugitive2",
+      "grepperside",
       "undotree",
       "diff",
       "tagbar",
