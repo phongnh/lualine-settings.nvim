@@ -1,6 +1,21 @@
 -- https://github.com/tpope/vim-fugitive
 local M = {}
 
+local sections = {
+  staged = "Staged",
+  unstaged = "Unstaged",
+  untracked = "Untracked",
+}
+
+local fugitive_status = function(section)
+  return function()
+    if vim.b.fugitive_status ~= nil and #vim.b.fugitive_status[section] > 0 then
+      return string.format("%s: %d", sections[section] or section, #vim.b.fugitive_status[section])
+    end
+    return ""
+  end
+end
+
 M.sections = {
   lualine_a = {
     function()
@@ -10,28 +25,13 @@ M.sections = {
   lualine_b = { "gitbranch" },
   lualine_c = {
     {
-      function()
-        return string.format("Staged: %d", #vim.b.fugitive_status["staged"])
-      end,
-      cond = function()
-        return vim.b.fugitive_status ~= nil and #vim.b.fugitive_status["staged"] > 0
-      end,
+      fugitive_status("staged"),
     },
     {
-      function()
-        return string.format("Untaged: %d", #vim.b.fugitive_status["unstaged"])
-      end,
-      cond = function()
-        return vim.b.fugitive_status ~= nil and #vim.b.fugitive_status["unstaged"] > 0
-      end,
+      fugitive_status("unstaged"),
     },
     {
-      function()
-        return string.format("Untracked: %d", #vim.b.fugitive_status["untracked"])
-      end,
-      cond = function()
-        return vim.b.fugitive_status ~= nil and #vim.b.fugitive_status["untracked"] > 0
-      end,
+      fugitive_status("untracked"),
     },
   },
   lualine_z = { "location" },
