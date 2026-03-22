@@ -15,7 +15,7 @@ M.sections = {
       end,
     },
   },
-  lualine_z = { "location" },
+  lualine_z = { "position" },
 }
 
 M.filetypes = { "ctrlsf-preview" }
