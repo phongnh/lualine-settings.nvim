@@ -9,26 +9,20 @@ M.sections = {
   },
   lualine_b = {
     {
-      function()
-        return vim.fn["ctrlsf#utils#SectionB"]()
-      end,
+      "ctrlsf#utils#SectionB",
       fmt = function(name, _context)
-          return name:gsub("Pattern: ", "")
+        return name:gsub("Pattern: ", "")
       end,
     },
     {
-      function()
-        return vim.fn["ctrlsf#utils#SectionC"]()
-      end,
+      "ctrlsf#utils#SectionC",
       fmt = function(name, _context)
         return vim.fn.fnamemodify(name, ":p:~:.")
-      end
+      end,
     },
   },
   lualine_z = {
-    function()
-      return vim.fn["ctrlsf#utils#SectionX"]()
-    end,
+    "ctrlsf#utils#SectionX",
   },
 }
 
