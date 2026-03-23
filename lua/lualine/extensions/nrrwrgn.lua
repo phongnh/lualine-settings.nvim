@@ -21,26 +21,19 @@ local function mode()
   return prefix .. name .. visual
 end
 
-local function line_range()
-  local status = vim.fn["nrrwrgn#NrrwRgnStatus"]()
-  if status.multi ~= 1 then
-    return string.format("[%d-%d]", status.start[2], status["end"][2])
-  end
-  return ""
-end
-
 local function bufname()
   local status = vim.fn["nrrwrgn#NrrwRgnStatus"]()
   local bufname = status.fullname ~= nil and status.fullname or vim.api.nvim_buf_get_name(vim.b.orig_buf or 0)
-  return vim.fn.fnamemodify(bufname, ":~:.")
+  bufname = vim.fn.fnamemodify(bufname, ":~:.")
+  if status.multi ~= 1 then
+    bufname = bufname .. string.format(" [%d-%d]", status.start[2], status["end"][2])
+  end
+  return bufname
 end
 
 M.sections = {
   lualine_a = {
     mode,
-  },
-  lualine_b = {
-    line_range,
   },
   lualine_c = {
     bufname,
