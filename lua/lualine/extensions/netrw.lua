@@ -6,7 +6,7 @@ M.sections = {
       return "Netrw"
     end,
   },
-  lualine_b = {
+  lualine_c = {
     {
       "b:netrw_curdir",
       fmt = function(name, _context)
@@ -15,17 +15,10 @@ M.sections = {
     },
   },
   lualine_y = {
-    {
-      function()
-        return vim.g.netrw_sort_direction or "n"
-      end,
-      fmt = function(name, _context)
-        return (name == "normal" or name == "n") and "[+]" or "[-]"
-      end,
-    },
-  },
-  lualine_z = {
-    "g:netrw_sort_by",
+    function()
+      local direction = (vim.g.netrw_sort_direction or "n")
+      return vim.g.netrw_sort_by .. ":" .. ((direction == "normal" or direction == "n") and "+" or "-")
+    end,
   },
 }
 
