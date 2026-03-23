@@ -2,6 +2,7 @@
 local M = {}
 
 local pickers_with_cwd = {
+  "Explorer",
   "Files",
   "Recent",
   "Git Files",
