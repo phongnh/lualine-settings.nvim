@@ -12,9 +12,9 @@ M.sections = {
         return string.format(
           "Found %d %s in %d %s.",
           vim.b.grepper_side_status.matches,
-          vim.b.grepper_side_status.matches ~= 1 and "matches" or "match",
+          vim.b.grepper_side_status.matches == 1 and "match" or "matches",
           vim.b.grepper_side_status.files,
-          vim.b.grepper_side_status.files ~= 1 and "files" or "file"
+          vim.b.grepper_side_status.files == 1 and "file" or "files"
         )
       end
       return ""
