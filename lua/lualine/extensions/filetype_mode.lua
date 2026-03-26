@@ -9,6 +9,8 @@ local filetypes = {
   startify = "Startify",
   -- vim.cmd.packadd("nvim.undotree")
   ["nvim-undotree"] = "NvimUndotree",
+  -- help: vim.pack
+  ["nvim-pack"] = "NvimPack",
 }
 
 local function filetype_mode()
