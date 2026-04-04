@@ -11,6 +11,8 @@ local filetypes = {
   ["nvim-undotree"] = "NvimUndotree",
   -- help: vim.pack
   ["nvim-pack"] = "NvimPack",
+  -- help :checkhealth
+  checkhealth = "Healthchecks",
 }
 
 local function filetype_mode()
