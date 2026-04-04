@@ -108,16 +108,14 @@ H.default_config = {
 }
 
 H.setup_config = function(config)
-  vim.validate({ config = { config, "table", true } })
+  vim.validate("config", config, "table", true)
   config = vim.tbl_deep_extend("force", vim.deepcopy(H.default_config), config or {})
 
-  vim.validate({
-    show_devicons = { config.show_devicons, "boolean" },
-    powerline_style = { config.powerline_style, "string" },
-    symbols = { config.symbols, "table", true },
-    show_git_branch = { config.show_git_branch, "boolean" },
-    show_linenr = { config.show_linenr, "boolean" },
-  })
+  vim.validate("show_devicons", config.show_devicons, "boolean")
+  vim.validate("powerline_style", config.powerline_style, "string")
+  vim.validate("symbols", config.symbols, "table", true)
+  vim.validate("show_git_branch", config.show_git_branch, "boolean")
+  vim.validate("show_linenr", config.show_linenr, "boolean")
 
   return config
 end
