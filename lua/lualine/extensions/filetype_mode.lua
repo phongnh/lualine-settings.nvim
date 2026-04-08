@@ -13,6 +13,8 @@ local filetypes = {
   ["nvim-pack"] = "NvimPack",
   -- help :checkhealth
   checkhealth = "Healthchecks",
+  -- help ui2
+  pager = "Pager",
 }
 
 local function filetype_mode()
