@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
   end,
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd("UIEnter", {
   group = "LualineSettingsIntegrations",
   pattern = "*",
   callback = function()
