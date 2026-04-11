@@ -1,22 +1,35 @@
 -- https://github.com/preservim/tagbar
 local M = {}
 
+local function tagbar()
+  return vim.g.lualine_tagbar or {}
+end
+
 M.sections = {
-  lualine_a = { "g:lualine_tagbar.sort" },
+  lualine_a = {
+    function()
+      return tagbar().sort or ""
+    end,
+  },
   lualine_b = {
     {
       function()
-        return table.concat(vim.g.lualine_tagbar.flags, "")
+        return table.concat(tagbar().flags or {}, "")
       end,
       cond = function()
-        return not vim.tbl_isempty(vim.g.lualine_tagbar.flags)
+        local flags = tagbar().flags
+        return flags ~= nil and not vim.tbl_isempty(flags)
       end,
       fmt = function(name, _context)
         return string.format("[%s]", name)
       end,
     },
   },
-  lualine_c = { "g:lualine_tagbar.fname" },
+  lualine_c = {
+    function()
+      return tagbar().fname or ""
+    end,
+  },
 }
 
 M.filetypes = { "tagbar" }
