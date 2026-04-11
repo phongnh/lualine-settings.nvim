@@ -151,7 +151,7 @@ H.setup_lualine = function()
       section_separators = LualineSettings.section_separators,
       globalstatus = vim.o.laststatus == 3,
       always_show_tabline = false,
-      disabled_filetypes = { statusline = { "startify", "alpha", "dashboard", "ministarter" } },
+      disabled_filetypes = { statusline = { "alpha", "dashboard", "ministarter" } },
     },
     sections = {
       lualine_a = {
