@@ -52,43 +52,47 @@ local component_separator_styles = {
 }
 -- stylua: ignore end
 
+-- stylua: ignore start
 local default_symbols = {
-  dos = "dos",
-  mac = "mac",
-  unix = "unix",
-  tabs = "TABS",
-  space = " ",
-  bomb = "🅑 ",
-  noeol = "∉ ",
+  dos       = "dos",
+  mac       = "mac",
+  unix      = "unix",
+  tabs      = "TABS",
+  space     = " ",
+  bomb      = "🅑 ",
+  noeol     = "∉ ",
   clipboard = "🅒 ",
-  paste = "🅟 ",
-  readonly = "",
-  linenr = "☰",
-  branch = "⎇ ",
-  ellipsis = "…",
-  explorer = "",
-  folder = "",
-  search = "",
+  paste     = "🅟 ",
+  readonly  = "",
+  linenr    = "☰",
+  branch    = "⎇ ",
+  ellipsis  = "…",
+  explorer  = "",
+  folder    = "",
+  search    = "",
 }
+-- stylua: ignore end
 
+-- stylua: ignore start
 local devicons_symbols = {
-  dos = "",
-  mac = "",
-  unix = "",
-  tabs = " ",
-  space = " ",
-  bomb = " ",
-  noeol = " ",
+  dos       = "",
+  mac       = "",
+  unix      = "",
+  tabs      = " ",
+  space     = " ",
+  bomb      = " ",
+  noeol     = " ",
   clipboard = "🅒 ",
-  paste = "🅟 ",
-  readonly = "",
-  linenr = "",
-  branch = "",
-  ellipsis = "…",
-  explorer = "󰙅",
-  folder = "󰉋",
-  search = "󰈞",
+  paste     = "🅟 ",
+  readonly  = "",
+  linenr    = "",
+  branch    = "",
+  ellipsis  = "…",
+  explorer  = "󰙅",
+  folder    = "󰉋",
+  search    = "󰈞",
 }
+-- stylua: ignore end
 
 local get_section_separators = function(style)
   return section_separator_styles[style] or section_separator_styles["||"]
