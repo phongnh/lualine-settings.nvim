@@ -115,11 +115,31 @@ H.setup_config = function(config)
   vim.validate("config", config, "table", true)
   config = vim.tbl_deep_extend("force", vim.deepcopy(H.default_config), config or {})
 
+  vim.validate("extensions", config.extensions, "table", true)
   vim.validate("show_devicons", config.show_devicons, "boolean")
   vim.validate("powerline_style", config.powerline_style, "string")
   vim.validate("symbols", config.symbols, "table", true)
   vim.validate("show_git_branch", config.show_git_branch, "boolean")
   vim.validate("show_linenr", config.show_linenr, "boolean")
+
+  config.extensions = config.extensions
+    or {
+      "nrrwrgn",
+      "mini-files",
+      "snacks_explorer",
+      "snacks_picker",
+      "telescope",
+      "fff",
+      "fzf_lua",
+      "gv",
+      "fugitive2",
+      "grepperside",
+      "undotree",
+      "tagbar",
+      "outline",
+      "lazy",
+      "mason",
+    }
 
   return config
 end
@@ -146,6 +166,23 @@ H.setup_lualine = function()
   -- Disable lualine's require
   local lualine_require = require("lualine_require")
   lualine_require.require = require
+
+  -- core extensions
+  local extensions = {
+    "cmdline",
+    "qf",
+    "help",
+    "terminal",
+    "filetype_mode",
+    "netrw",
+    "git",
+    "gitcommit",
+    "gitrebase",
+    "diff",
+    "man",
+  }
+  vim.list_extend(extensions, vim.deepcopy(LualineSettings.config.extensions))
+  vim.list.unique(extensions)
 
   require("lualine").setup({
     options = {
@@ -210,36 +247,7 @@ H.setup_lualine = function()
       lualine_y = {},
       lualine_z = {},
     },
-    extensions = vim.list_extend({
-      "cmdline",
-      "qf",
-      "help",
-      "terminal",
-      "filetype_mode",
-      "nrrwrgn",
-      "netrw",
-      "mini-files",
-      "snacks_explorer",
-      "snacks_picker",
-      "telescope",
-      "fff",
-      "gv",
-      "git",
-      "gitcommit",
-      "gitrebase",
-      "fugitive2",
-      "grepperside",
-      "undotree",
-      "diff",
-      "tagbar",
-      "outline",
-    }, {
-      -- lualine.nvim builtin extensions
-      "fzf",
-      "lazy",
-      "man",
-      "mason",
-    }),
+    extensions = extensions,
   })
 end
 
