@@ -218,6 +218,7 @@ H.setup_lualine = function()
       "snacks_explorer",
       "snacks_picker",
       "telescope",
+      "fff",
       "gv",
       "git",
       "gitcommit",
