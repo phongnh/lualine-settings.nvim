@@ -132,6 +132,7 @@ H.setup_config = function(config)
       "fff",
       "fzf_lua",
       "neogit",
+      "diffview",
       "gv",
       "fugitive2",
       "grepperside",
