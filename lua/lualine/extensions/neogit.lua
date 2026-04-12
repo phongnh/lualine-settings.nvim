@@ -7,19 +7,19 @@ local function get_repo()
   return nil
 end
 
-local function get_title()
+local function get_branch()
   local repo = get_repo()
   if repo then
     local head = repo.state and repo.state.head
     if head then
       if head.detached and head.abbrev then
-        return "Neogit (" .. head.abbrev .. ")"
+        return head.abbrev
       elseif head.branch then
-        return "Neogit (" .. head.branch .. ")"
+        return head.branch
       end
     end
   end
-  return "Neogit"
+  return ""
 end
 
 local function get_cwd()
@@ -32,12 +32,14 @@ end
 
 M.sections = {
   lualine_a = {
+    function() return "Neogit" end,
+  },
+  lualine_b = {
     {
-      get_title,
+      get_branch,
       icon = LualineSettings.symbols.branch,
     },
   },
-  lualine_b = {},
   lualine_c = {
     {
       get_cwd,
