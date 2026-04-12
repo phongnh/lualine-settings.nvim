@@ -131,6 +131,7 @@ H.setup_config = function(config)
       "telescope",
       "fff",
       "fzf_lua",
+      "neogit",
       "gv",
       "fugitive2",
       "grepperside",
