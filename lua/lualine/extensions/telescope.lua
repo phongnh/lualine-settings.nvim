@@ -27,12 +27,14 @@ end
 
 M.sections = {
   lualine_a = {
+    function() return "Telescope" end,
+  },
+  lualine_b = {
     {
       get_picker_title,
       icon = LualineSettings.symbols.search,
     },
   },
-  lualine_b = {},
   lualine_c = {
     {
       get_picker_cwd,

@@ -12,9 +12,9 @@ end
 local function get_title()
   local state = get_state()
   if state then
-    return (state.config and state.config.title) or (state.mode == "grep" and "Live Grep" or "FFFiles")
+    return (state.config and state.config.title) or (state.mode == "grep" and "Live Grep" or "Files")
   end
-  return "FFFiles"
+  return "Files"
 end
 
 local function get_cwd()
@@ -30,12 +30,14 @@ end
 
 M.sections = {
   lualine_a = {
+    function() return "FFF" end,
+  },
+  lualine_b = {
     {
       get_title,
       icon = LualineSettings.symbols.search,
     },
   },
-  lualine_b = {},
   lualine_c = {
     {
       get_cwd,

@@ -60,12 +60,14 @@ end
 
 M.sections = {
   lualine_a = {
+    function() return "FZF" end,
+  },
+  lualine_b = {
     {
       get_title,
       icon = LualineSettings.symbols.search,
     },
   },
-  lualine_b = {},
   lualine_c = {
     {
       get_cwd,
