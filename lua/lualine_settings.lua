@@ -202,7 +202,6 @@ H.setup_lualine = function()
         "mode",
         "clipboard",
         "paste",
-        "spell",
       },
       lualine_b = LualineSettings.show_git_branch and { "branch" } or {},
       lualine_c = vim.list_extend(LualineSettings.show_devicons and {
@@ -211,6 +210,7 @@ H.setup_lualine = function()
         { "filename", path = 1, shorting_target = 40 },
       }),
       lualine_x = {
+        "spell",
         "fileencoding",
         "bomb",
         "noeol",

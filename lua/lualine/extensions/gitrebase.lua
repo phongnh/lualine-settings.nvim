@@ -5,9 +5,9 @@ M.sections = {
     function()
       return "Git Rebase"
     end,
-    "spell",
   },
   lualine_b = { "branch" },
+  lualine_x = { "spell" },
   lualine_z = { "position" },
 }
 

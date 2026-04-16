@@ -5,9 +5,9 @@ M.sections = {
     function()
       return "Commit Message"
     end,
-    "spell",
   },
   lualine_b = { "branch" },
+  lualine_x = { "spell" },
   lualine_z = { "position" },
 }
 
