@@ -19,9 +19,7 @@ M.sections = {
       end,
     },
   },
-  lualine_z = {
-    "position",
-  },
+  lualine_z = { "position" },
 }
 
 M.filetypes = { "Outline" }
