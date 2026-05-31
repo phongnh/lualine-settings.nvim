@@ -11,8 +11,8 @@ M.sections = {
       if
         vim.g._fugitive_last_job ~= nil
         and (
-          vim.g._fugitive_last_job.capture_bufnr == vim.api.nvim_get_current_buf()
-          or vim.g._fugitive_last_job.file == vim.api.nvim_buf_get_name(0)
+          vim.g._fugitive_last_job.file == vim.api.nvim_buf_get_name(0)
+          or vim.g._fugitive_last_job.capture_bufnr == vim.api.nvim_get_current_buf()
         )
       then
         local cmd = vim.list_extend({}, vim.g._fugitive_last_job.git)
