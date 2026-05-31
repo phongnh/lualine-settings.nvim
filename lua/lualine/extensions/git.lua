@@ -22,7 +22,7 @@ M.sections = {
       return vim.fs.basename(vim.api.nvim_buf_get_name(0))
     end,
   },
-  lualine_z = { "position" },
+  lualine_y = { "position" },
 }
 
 M.filetypes = { "git" }

@@ -8,7 +8,7 @@ M.sections = {
   },
   lualine_b = { "branch" },
   lualine_x = { "spell" },
-  lualine_z = { "position" },
+  lualine_y = { "position" },
 }
 
 M.filetypes = { "gitcommit" }

@@ -21,7 +21,7 @@ M.sections = {
       return "q: quit"
     end,
   },
-  lualine_z = { "position" },
+  lualine_y = { "position" },
 }
 
 M.filetypes = { "GV" }

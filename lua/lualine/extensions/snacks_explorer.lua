@@ -31,7 +31,7 @@ M.sections = {
       icon = LualineSettings.symbols.folder,
     },
   },
-  lualine_z = { "position" },
+  lualine_y = { "position" },
 }
 
 M.filetypes = { "snacks_picker_list" }

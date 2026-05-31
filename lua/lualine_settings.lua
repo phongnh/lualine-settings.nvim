@@ -216,26 +216,23 @@ H.setup_lualine = function()
         "noeol",
         "fileformat2",
       },
-      lualine_y = vim.list_extend(LualineSettings.show_linenr and {
-        {
-          "progress",
-          cond = function()
-            return vim.api.nvim_win_get_width(0) >= 100
-          end,
-          -- fmt = function(text, _context)
-          --     return vim.api.nvim_win_get_width(0) >= 100 and text or ""
-          -- end,
-          separator = " ",
-          padding = { left = 1, right = 0 },
-        },
+      lualine_y = vim.list_extend({ "indent" }, LualineSettings.show_linenr and {
         {
           "location",
           cond = function()
             return vim.api.nvim_win_get_width(0) >= 100
           end,
+          separator = " ",
+          padding = { left = 1, right = 0 },
+        },
+        {
+          "progress",
+          cond = function()
+            return vim.api.nvim_win_get_width(0) >= 100
+          end,
           padding = { left = 0, right = 1 },
         },
-      } or {}, { "indent" }),
+      } or {}),
       lualine_z = {
         { "filetype", icons_enabled = false },
       },

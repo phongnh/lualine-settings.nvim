@@ -26,7 +26,7 @@ M.sections = {
   lualine_a = {
     filetype_mode,
   },
-  lualine_z = { "position" },
+  lualine_y = { "position" },
 }
 
 M.filetypes = vim.tbl_keys(filetypes)

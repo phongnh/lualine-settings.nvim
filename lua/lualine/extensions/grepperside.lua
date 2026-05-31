@@ -20,7 +20,7 @@ M.sections = {
       return ""
     end,
   },
-  lualine_z = { "position" },
+  lualine_y = { "position" },
 }
 
 M.filetypes = { "GrepperSide" }
