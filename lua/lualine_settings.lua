@@ -139,7 +139,7 @@ H.setup_config = function(config)
       "grepperside",
       "undotree",
       "tagbar",
-      "aerial",
+      "aerial2",
       "outline",
       "lazy",
       "mason",
