@@ -23,25 +23,7 @@ end
 
 M.sections = {
   lualine_a = { label },
-  lualine_b = {
-    {
-      title,
-      fmt = function(text)
-        local maxlen = vim.o.columns - string.len(label()) - 2
-        if #text > maxlen then
-          local cmd = ""
-          for _, part in ipairs(vim.fn.split(text, "")) do
-            if string.len(cmd .. " " .. part) > (maxlen - 3) then
-              break
-            end
-            cmd = cmd .. " " .. part
-          end
-          text = cmd .. " " .. LualineSettings.symbols.ellipsis
-        end
-        return text:gsub("%%", "%%%%")
-      end,
-    },
-  },
+  lualine_b = { title },
   lualine_z = { "location" },
 }
 
