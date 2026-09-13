@@ -125,6 +125,7 @@ H.setup_config = function(config)
   config.extensions = config.extensions
     or {
       "nrrwrgn",
+      "dir",
       "mini-files",
       "snacks_explorer",
       "snacks_picker",
